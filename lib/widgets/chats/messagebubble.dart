@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -18,7 +17,7 @@ class MessageBubble extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    color: isMe ? Colors.green : Theme.of(context).accentColor,
+                    color: isMe ? Colors.green : Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10),
                       topLeft: Radius.circular(10),
@@ -37,28 +36,31 @@ class MessageBubble extends StatelessWidget {
                           textAlign: isMe ? TextAlign.end : TextAlign.start,
                           style: TextStyle(
                             color: Theme.of(context)
-                                .accentTextTheme
+                                .textTheme
                                 .headline1!
                                 .color,
                             fontWeight: FontWeight.bold,
                           )),
-                      Text(message,
-                          textAlign: isMe ? TextAlign.end : TextAlign.start,
-                          style: TextStyle(
-                              color: Theme.of(context)
-                                  .accentTextTheme
-                                  .headline1!
-                                  .color)),
-                    ]),
+                      Text(
+                        message,
+                        textAlign: isMe ? TextAlign.end : TextAlign.start,
+                        style: TextStyle(
+                          color: Theme.of(context)
+                              .textTheme
+                              .headline1!
+                              .color,
+                        ),
+                      ),
+                    ],),
               ),
-            ]),
+            ],),
         Positioned(
-          top:-8,
-          left:isMe?null:120,
-          right:isMe?122:null,
+            top: -8,
+            left: isMe ? null : 120,
+            right: isMe ? 122 : null,
             child: CircleAvatar(backgroundImage: NetworkImage(imageUrl))),
       ],
-      clipBehavior:Clip.none,
+      clipBehavior: Clip.none,
     );
   }
 }
